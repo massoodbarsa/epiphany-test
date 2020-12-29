@@ -3,7 +3,8 @@
     <div class="container">
       <div class="slide">
         <div class="slide__container__title">
-          <h4>{{ title }}</h4>
+          <h4 v-if="slider">{{ title }}</h4>
+          <h4 v-else>Thank you for participating</h4>
         </div>
         <section class="slide__container">
           <div v-for="(image, index) in images" :key="index">
@@ -19,17 +20,15 @@
         </section>
         <slot v-if="slider"></slot>
       </div>
-      <div class="next-container">
+      <span class="next-container" @click="nextSlide">
         <fa-icon
           :icon="['fas', 'arrow-right']"
           size="3x"
-          @click="nextSlide"
           style="curser: pointer"
           :class="!slider ? 'next-disable' : 'save-icon'"
         />
-      </div>
+      </span>
     </div>
-    {{ slider }}
   </div>
 </template>
 
@@ -74,13 +73,18 @@ export default {
   .next-container {
     margin-left: 0.3rem;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     align-content: center;
     justify-content: center;
-    margin-top: 4rem;
+    margin-top: 1rem;
+    width: 200px;
+    height: fit-content;
 
     .save-icon {
       cursor: pointer;
+      border: 1px solid gray;
+      padding: 0.4rem;
+      border-radius: 50%;
       :hover {
         color: cyan;
       }
@@ -117,14 +121,15 @@ export default {
   }
 }
 
-.fade-enter-active,
+.fade-enter-active{
+   transition: all 1s ease-out;
+}
 .fade-leave-active {
   transition: all 1s ease-in;
 }
 
 .fade-enter-from {
   opacity: 0;
-  transform: translateY(0%);
 }
 .fade-leave-to {
   opacity: 0;

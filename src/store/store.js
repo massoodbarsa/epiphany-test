@@ -14,7 +14,11 @@ import last from "../assets/img_control_tool_finish.svg";
 export default new Vuex.Store({
   state: {
     currentSlide: 0,
+    currentQuestion:0,
     slider: true,
+    result: [
+
+    ],
 
     images: [{
         image: photo1,
@@ -59,10 +63,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-
     nextSlide: (context) => {
       context.commit("nextSlide")
-
     }
   }
 

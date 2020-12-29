@@ -2,16 +2,30 @@
   <div>
     <SlideComponent>
       <section class="container">
-        <div v-for="(cat, index) in cats" :key="index" class="cats">
-          <span>
-            <img
-              :src="cat.cat"
-              :alt="cat.alt"
-              class="cats__image"
-              @click="nextSlide"
-            />
-          </span>
-          <p>{{ cat.title }}</p>
+        <div class="select">
+          <p>Who is this guy?</p>
+          <select v-model="character">
+            <option v-for="(character, index) in characters" :key="index">
+              {{ character }}
+            </option>
+          </select>
+        </div>
+
+        <div class="select">
+          <p>Where does he lives?</p>
+          <select v-model="city">
+            <option v-for="(city, index) in cities" :key="index">
+              {{ city }}
+            </option>
+          </select>
+        </div>
+        <div class="select">
+          <p>How do you think about him?</p>
+          <select v-model="score">
+            <option v-for="(score, index) in scores" :key="index">
+              {{ score }}
+            </option>
+          </select>
         </div>
       </section>
     </SlideComponent>
@@ -33,12 +47,29 @@ export default {
         { cat: cat2, title: "Meow" },
         { cat: cat3, title: "Hiss" },
       ],
+
+      characters: ["Dumbledore", "Dr Who", "bad", "Samuel", "snape"],
+
+      cities: ["Amsterdam", "Utrecht", "Arnehem"],
+
+      scores: ["Perfect", "Normal", "Bad"],
+
+      character: "",
+      city: "",
+      score: "",
     };
   },
   components: {
     SlideComponent,
   },
-
+  computed: {
+    result() {
+      return this.$store.state.result;
+    },
+    currentQuestion() {
+      return this.$store.state.currentQuestion;
+    },
+  },
   methods: {
     ...mapActions(["nextSlide"]),
   },
@@ -48,26 +79,20 @@ export default {
 <style scoped lang='scss'>
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: cyan;
   margin: 0 auto;
   box-sizing: border-box;
 
-  .cats {
-    padding: 1rem;
+  .select {
+    width: 200px;
+    background-color: cyan;
+    height: 50px;
+    width: 600px;
     p {
-      font-weight: 700;
-    }
-    span {
-      :hover {
-        opacity: 0.5;
-      }
-    }
-
-    &__image {
-      display: flex;
-      flex-direction: row;
-      width: 50px;
+      margin-right: 20px;
+      display: inline-block;
     }
   }
 }
