@@ -6,6 +6,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    statement:[
+      {title:'statement1',img:'',stars:'',emogi:''},
+      
+    ]
 
   },
 
