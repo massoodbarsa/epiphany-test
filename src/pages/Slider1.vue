@@ -55,6 +55,9 @@ export default {
 
   .cats {
     padding: 1rem;
+    p {
+      font-weight: 700;
+    }
     span {
       :hover {
         opacity: 0.5;

@@ -69,7 +69,6 @@ export default {
 
   .next-container {
     margin-left: 0.3rem;
-    // height: 100vh;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -94,6 +93,7 @@ export default {
       background-color: aqua;
       padding: 2rem;
       border-radius: 3px;
+      position: relative;
 
       &__title {
         background-color: rgb(0, 195, 255);
@@ -102,6 +102,7 @@ export default {
       }
       &__image {
         width: 300px;
+        position: relative;
       }
     }
   }
@@ -114,7 +115,7 @@ export default {
 
 .fade-enter-from {
   opacity: 0;
-  transform: translateX(-50%);
+  transform: translateY(0%);
 }
 .fade-leave-to {
   opacity: 0;

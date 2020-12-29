@@ -6,10 +6,10 @@ import VueResource from 'vue-resource'
 import store from './store/store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import { faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight,faStar} from '@fortawesome/free-solid-svg-icons'
 
 
-library.add(faArrowRight)
+library.add(faArrowRight,faStar)
 Vue.component('fa-icon',FontAwesomeIcon)
 Vue.use(VueRouter)
 Vue.use(VueResource)
