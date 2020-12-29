@@ -46,29 +46,16 @@ export default new Vuex.Store({
     ],
 
   },
-
-  // getters: {
-  //   saleProducts: state => {
-  //     var saleProduct = state.products.map((product) => {
-  //       return {
-  //         name: "**" + product.name + "**",
-  //         price: product.price / 2,
-  //       };
-  //     });
-  //     return saleProduct
-  //   }
-  // },
+  
   mutations: {
     nextSlide: (state) => {
       state.currentSlide += 1
     }
   },
   actions: {
-    
+
     nextSlide: (context) => {
       context.commit("nextSlide")
-      console.log('add shid');
-
 
     }
   }
