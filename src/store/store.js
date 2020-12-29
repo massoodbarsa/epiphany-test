@@ -13,7 +13,8 @@ import last from "../assets/img_control_tool_finish.svg";
 
 export default new Vuex.Store({
   state: {
-    currentSlide: 2,
+    currentSlide: 0,
+    slider: true,
 
     images: [{
         image: photo1,
@@ -50,6 +51,11 @@ export default new Vuex.Store({
   mutations: {
     nextSlide: (state) => {
       state.currentSlide += 1
+      if (state.currentSlide === 6) {
+        state.currentSlide = 6
+        state.slider = false
+
+      }
     }
   },
   actions: {

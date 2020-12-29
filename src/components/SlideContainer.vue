@@ -17,7 +17,7 @@
             </transition>
           </div>
         </section>
-        <slot></slot>
+        <slot v-if="slider"></slot>
       </div>
       <div class="next-container">
         <fa-icon
@@ -25,10 +25,11 @@
           size="3x"
           @click="nextSlide"
           style="curser: pointer"
-          class="save-icon"
+          :class="!slider ? 'next-disable' : 'save-icon'"
         />
       </div>
     </div>
+    {{ slider }}
   </div>
 </template>
 
@@ -48,6 +49,9 @@ export default {
     },
     currentSlide() {
       return this.$store.state.currentSlide;
+    },
+    slider() {
+      return this.$store.state.slider;
     },
   },
 
@@ -83,6 +87,10 @@ export default {
     }
   }
 
+  .next-disable {
+    display: none !important;
+  }
+
   .slide {
     display: flex;
     flex-direction: column;
@@ -102,6 +110,7 @@ export default {
       }
       &__image {
         width: 300px;
+        height: 200px;
         position: relative;
       }
     }
