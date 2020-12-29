@@ -16,9 +16,6 @@ export default new Vuex.Store({
     currentSlide: 0,
     currentQuestion: 0,
     slider: true,
-    character: "",
-    city: "",
-    score: "",
 
     images: [{
         image: photo1,
