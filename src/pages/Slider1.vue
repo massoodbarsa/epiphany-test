@@ -3,8 +3,15 @@
     <SlideComponent>
       <section class="container">
         <div v-for="(cat, index) in cats" :key="index" class="cats">
-          <img :src="cat.cat" :alt="cat.alt" class="cats__image" />
-          <p>{{cat.title}}</p>
+          <span>
+            <img
+              :src="cat.cat"
+              :alt="cat.alt"
+              class="cats__image"
+              @click="nextSlide"
+            />
+          </span>
+          <p>{{ cat.title }}</p>
         </div>
       </section>
     </SlideComponent>
@@ -12,6 +19,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import cat1 from "../assets/img_cat_happy.png";
 import cat2 from "../assets/img_cat_neutral.png";
 import cat3 from "../assets/img_cat_supersad.png";
@@ -30,6 +38,10 @@ export default {
   components: {
     SlideComponent,
   },
+
+  methods: {
+    ...mapActions(["nextSlide"]),
+  },
 };
 </script>
 
@@ -43,6 +55,12 @@ export default {
 
   .cats {
     padding: 1rem;
+    span {
+      :hover {
+        opacity: 0.5;
+      }
+    }
+
     &__image {
       display: flex;
       flex-direction: row;

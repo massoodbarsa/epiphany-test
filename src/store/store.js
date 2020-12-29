@@ -46,7 +46,7 @@ export default new Vuex.Store({
     ],
 
   },
-  
+
   mutations: {
     nextSlide: (state) => {
       state.currentSlide += 1
@@ -59,6 +59,5 @@ export default new Vuex.Store({
 
     }
   }
-
 
 })
