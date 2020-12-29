@@ -72,6 +72,7 @@ export default {
   },
   methods: {
     ...mapActions(["nextSlide"]),
+    
   },
 };
 </script>

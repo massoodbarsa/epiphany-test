@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <Header/>
+      <Header />
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
+import Header from "./components/Header";
 export default {
   components: {
-    Header
+    Header,
   },
 };
 </script>
@@ -25,7 +25,6 @@ export default {
 }
 
 #nav {
-
   a {
     font-weight: bold;
     color: #494242;

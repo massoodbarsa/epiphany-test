@@ -5,6 +5,7 @@
       :key="item.to"
       :to="item.to"
       class="nav-link"
+      @click.native="cleanSlide"
     >
       {{ item.title }}
     </router-link>
@@ -12,6 +13,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -22,6 +25,9 @@ export default {
         { title: "Slider3", to: "/slider3" },
       ],
     };
+  },
+  methods: {
+    ...mapActions(["cleanSlide"]),
   },
 };
 </script>
